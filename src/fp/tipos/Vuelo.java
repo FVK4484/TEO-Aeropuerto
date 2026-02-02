@@ -9,22 +9,22 @@ import fp.utiles.Checkers;
 
 public class Vuelo implements Comparable<Vuelo>{
 	
-	Trayecto trayecto;
-	Double precio;
-	Integer numPasajeros;
-	Integer numPlazas;
-	String codigo;
-	LocalDate fecha;
-	Duration duracion;
-	List<String> tripulacion;
+	private Trayecto trayecto;
+	private Double precio;
+	private Integer numPasajeros;
+	private Integer numPlazas;
+	private String codigo;
+	private LocalDate fecha;
+	private Duration duracion;
+	private List<String> tripulacion;
 	
 	public Vuelo(Trayecto trayecto, Double precio, Integer numPasajeros, Integer numPlazas, String codigo,
 			LocalDate fecha, Duration duracion, List<String> tripulacion) {
 
 		setTrayecto(trayecto);
 		setPrecio(precio);
-		setNumPasajeros(numPasajeros);
 		setNumPlazas(numPlazas);
+		setNumPasajeros(numPasajeros);
 		setCodigo(codigo);
 		setFecha(fecha);
 		setDuracion(duracion);
@@ -116,7 +116,7 @@ public class Vuelo implements Comparable<Vuelo>{
 	}
 	
 	public Integer getDuracionMinutos() {
-		return duracion.toMinutesPart();
+		return (int) duracion.toMinutes();
 	}
 	
 	public Boolean getEstaCompleto() {
@@ -128,7 +128,7 @@ public class Vuelo implements Comparable<Vuelo>{
 	}
 	
 	public Double getPorcentajeOcupacion() {
-		return Double.valueOf((numPasajeros * 100) / numPlazas);
+		return (double) numPasajeros * 100 / numPlazas;
 	}
 	
 	private boolean minimoTripulacion(List<String> tripulacion) {
@@ -162,12 +162,18 @@ public class Vuelo implements Comparable<Vuelo>{
 			if (t.length() != 6) {
 				res = false;
 				break;
-			} else if (!t.startsWith("AV") || !t.startsWith("PP") || !t.startsWith("CP")) {
+			} else if (!t.startsWith("AV") && !t.startsWith("PP") && !t.startsWith("CP")) {
 				res = false;
 				break;
-//			} else if () {
-//				res = false;
-//				break;
+			} else {
+				String numeros = t.substring(2);
+				for (int i = 0; i < numeros.length(); i++) {
+					if (!Character.isDigit(numeros.charAt(i))) {
+						res = false;
+						break;
+					}
+				}
+				if (!res) break; 
 			}
 		}
 		return res;
@@ -227,8 +233,9 @@ public class Vuelo implements Comparable<Vuelo>{
 		return res;
 	}
 	
-	private Double incrementaPrecioPorcentaje(Double porcentaje) {
-		return (precio * porcentaje) / 100;
+	public void incrementaPrecioPorcentaje(Double porcentaje) {
+	    Double incremento = (this.precio * porcentaje) / 100;
+	    this.precio += incremento;
 	}
 
 }
