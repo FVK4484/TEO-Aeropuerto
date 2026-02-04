@@ -207,7 +207,7 @@ public class Vuelo implements Comparable<Vuelo>{
 	}
 
 	public String toString() {
-		return "Vuelo [trayecto=" + trayecto + ", codigo=" + codigo + ", fecha=" + fecha + "]";
+		return "Vuelo [Trayecto=" + trayecto + ", codigo=" + codigo + ", fecha=" + fecha + "]";
 	}
 
 	public int hashCode() {
