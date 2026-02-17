@@ -15,6 +15,8 @@ public class TestVuelosB2 {
 		testGetNumPasajerosDestinoPrefijo(listaVuelos, "Barcelona");
 		testGetRecaudacionDestino(listaVuelos, "Barcelona");
 		testGetPrimerVueloDestino(listaVuelos, "Paris");
+		testGetPrimerVueloDestinoMenorPrecio(listaVuelos, "Madrid");
+		
 	}
 	
 	private static void testGetNumPasajerosDestino(List<Vuelo> vuelos, String destino) {
@@ -38,10 +40,17 @@ public class TestVuelosB2 {
 		
 	}
 	
-private static void testGetPrimerVueloDestino(List <Vuelo> vuelos, String destino) {
+	private static void testGetPrimerVueloDestino(List <Vuelo> vuelos, String destino) {
 		
 		System.out.println("===testGetPrimerVueloDestino ===");
 		System.out.println("Primer vuelo a " + destino + ": " + VuelosB2.getPrimerVueloDestino(vuelos, destino));
+		
+	}
+	
+	private static void testGetPrimerVueloDestinoMenorPrecio(List<Vuelo> vuelos, String destino) {
+		
+		System.out.println("===testGetPrimerVueloDestinoMenorPrecio ===");
+		System.out.println("Primer vuelo a " + destino + " con menor precio: " + VuelosB2.getPrimerVueloDestinoMenorPrecio(vuelos, destino));
 		
 	}
 

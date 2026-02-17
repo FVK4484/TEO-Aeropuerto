@@ -52,4 +52,15 @@ public class VuelosB2 extends Vuelos{
 		return res.getFirst();
 	}
 	
+	public static Vuelo getPrimerVueloDestinoMenorPrecio(List<Vuelo> vuelos, String destino) {
+		List<Vuelo> res = new ArrayList<>();
+		for (Vuelo v : vuelos) {
+			if (v.getDestino().equals(destino)) {
+				res.add(v);
+			}
+		}
+		Collections.sort(vuelos, Comparator.comparing(Vuelo::getFecha).thenComparing(Vuelo::getPrecio));
+		return res.getFirst();
+	}
+	
 }
