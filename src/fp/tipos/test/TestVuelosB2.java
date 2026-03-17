@@ -11,46 +11,46 @@ public class TestVuelosB2 {
 	public static void main(String[] args) {
 		List<Vuelo> listaVuelos = FactoriaVuelos.leeVuelos("./data/aeropuerto.csv");
 		
-		testGetNumPasajerosDestino(listaVuelos, "Madrid");
-		testGetNumPasajerosDestinoPrefijo(listaVuelos, "Barcelona");
-		testGetRecaudacionDestino(listaVuelos, "Barcelona");
-		testGetPrimerVueloDestino(listaVuelos, "Paris");
-		testGetPrimerVueloDestinoMenorPrecio(listaVuelos, "Madrid");
+		testGetNumPasajerosDestino("Madrid");
+		testGetNumPasajerosDestinoPrefijo("Barcelona");
+		testGetRecaudacionDestino("Barcelona");
+		testGetPrimerVueloDestino("Paris");
+		testGetPrimerVueloDestinoMenorPrecio("Madrid");
 		
 	}
 	
-	private static void testGetNumPasajerosDestino(List<Vuelo> vuelos, String destino) {
+	private static void testGetNumPasajerosDestino(String destino) {
 		
 		System.out.println("===testGetNumPasajerosDestino ===");
-		System.out.println("Pasajeros con destino " + destino + ": " + VuelosB2.getNumPasajerosDestino(vuelos, destino));
+		System.out.println("Pasajeros con destino " + destino + ": " + VuelosB2.getNumPasajerosDestino(destino));
 		
 	}
 	
-	private static void testGetNumPasajerosDestinoPrefijo(List <Vuelo> vuelos, String s) {
+	private static void testGetNumPasajerosDestinoPrefijo(String s) {
 		
 		System.out.println("===testGetNumPasajerosDestinoPrefijo ===");
-		System.out.println("Pasajeros con destino que empieza por " + s + ": " + VuelosB2.getNumPasajerosDestinoPrefijo(vuelos, s));
+		System.out.println("Pasajeros con destino que empieza por " + s + ": " + VuelosB2.getNumPasajerosDestinoPrefijo(s));
 		
 	}
 	
-	private static void testGetRecaudacionDestino(List <Vuelo> vuelos, String destino) {
+	private static void testGetRecaudacionDestino(String destino) {
 		
 		System.out.println("===testGetRecaudacionDestino ===");
-		System.out.println("Recaudación de los vuelos a " + destino + ": " + VuelosB2.getRecaudacionDestino(vuelos, destino));
+		System.out.println("Recaudación de los vuelos a " + destino + ": " + VuelosB2.getRecaudacionDestino(destino));
 		
 	}
 	
-	private static void testGetPrimerVueloDestino(List <Vuelo> vuelos, String destino) {
+	private static void testGetPrimerVueloDestino(String destino) {
 		
 		System.out.println("===testGetPrimerVueloDestino ===");
-		System.out.println("Primer vuelo a " + destino + ": " + VuelosB2.getPrimerVueloDestino(vuelos, destino));
+		System.out.println("Primer vuelo a " + destino + ": " + VuelosB2.getPrimerVueloDestino(destino));
 		
 	}
 	
-	private static void testGetPrimerVueloDestinoMenorPrecio(List<Vuelo> vuelos, String destino) {
+	private static void testGetPrimerVueloDestinoMenorPrecio(String destino) {
 		
 		System.out.println("===testGetPrimerVueloDestinoMenorPrecio ===");
-		System.out.println("Primer vuelo a " + destino + " con menor precio: " + VuelosB2.getPrimerVueloDestinoMenorPrecio(vuelos, destino));
+		System.out.println("Primer vuelo a " + destino + " con menor precio: " + VuelosB2.getPrimerVueloDestinoMenorPrecio(destino));
 		
 	}
 
