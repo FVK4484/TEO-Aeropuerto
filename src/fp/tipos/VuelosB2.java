@@ -25,6 +25,7 @@ public class VuelosB2 extends Vuelos{
 	// devuelve el total de pasajeros a ese destino.
 	
 	// Acumulador
+	
 	public Integer getNumPasajerosDestino(String destino) {
 		Integer res = 0;
 		for (Vuelo v : getVuelos()) {
