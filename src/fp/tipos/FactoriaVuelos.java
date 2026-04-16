@@ -1,9 +1,6 @@
 package fp.tipos;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -64,33 +61,35 @@ public class FactoriaVuelos {
 		
 	}
 	
-	public static List<Vuelo> leeVuelos(String fichero) {
-	    List<Vuelo> res = new ArrayList<>();
-
-	    try {
-	        List<String> lineas = Files.readAllLines(Paths.get(fichero));
-	        lineas.remove(0);
-	        for (String linea : lineas) {
-	            Vuelo v = parseaVuelo(linea);
-	            res.add(v);
-	        }
-	    } catch (IOException e) {
-	        System.out.println("No se ha encontrado el fichero");
-	        e.printStackTrace();
-	    }
-	    return res;
-	}
-}
-
 //	public static List<Vuelo> leeVuelos(String fichero) {
-//		Checkers.checkNoNull(fichero);
-//		String errMsg = String.format("Error leyendo fichero <%s>"
-//				, fichero);
-//		List<String> lineas = Ficheros.leeFichero(errMsg, fichero, StandardCharsets.UTF_8);
+//	    List<Vuelo> res = new ArrayList<>();
 //
-//		List<Vuelo> res = lineas.stream()
-//				                  .skip(1)
-//				                  .map(linea -> parseaVuelo(linea))
-//				                  .collect(Collectors.toList());
-//		return res;
+//	    try {
+//	        List<String> lineas = Files.readAllLines(Paths.get(fichero));
+//	        lineas.remove(0);
+//	        for (String linea : lineas) {
+//	            Vuelo v = parseaVuelo(linea);
+//	            res.add(v);
+//	        }
+//	    } catch (IOException e) {
+//	        System.out.println("No se ha encontrado el fichero");
+//	        e.printStackTrace();
+//	    }
+//	    return res;
 //	}
+	
+	public static List<Vuelo> leeVuelos(String fichero) {
+		Checkers.checkNoNull(fichero);
+		String errMsg = String.format("Error leyendo fichero <%s>"
+				, fichero);
+		List<String> lineas = Ficheros.leeFichero(errMsg, fichero, StandardCharsets.UTF_8);
+
+		List<Vuelo> res = lineas.stream()
+				                  .skip(1)
+				                  .map(linea -> parseaVuelo(linea))
+				                  .collect(Collectors.toList());
+		return res;
+		
+	}
+	
+}

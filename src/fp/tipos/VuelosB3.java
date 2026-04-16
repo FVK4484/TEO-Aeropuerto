@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -138,9 +139,19 @@ public class VuelosB3 extends Vuelos{
 	
 //	7. Devuelve un SortedSet con todos los vuelos ordenados por orden alfabético de destino.
 	
+	public SortedSet<Vuelo> getVuelosOrdenadosPorOrdenAlfabeticoDeDestino() {
+		Comparator<Vuelo> cmp = Comparator
+				.comparing(Vuelo::getDestino);
+		SortedSet<Vuelo> conjOrdVuelos = new TreeSet<Vuelo>(cmp);
+		for (Vuelo vuelo : getVuelos()) {
+			conjOrdVuelos.add(vuelo);
+		}
+		return conjOrdVuelos;
+	}
+	
 //	10. Implemente un método que devuelva cuál es el destino con más vuelos.
 	
-	public String getDestinoMaVuelos() {
+	public String getDestinoMasVuelos() {
 		Map<String, Integer> mpAux = 
 				getNumVuelosPorDestino();
 		
@@ -153,6 +164,7 @@ public class VuelosB3 extends Vuelos{
 						e -> e.getValue());
 		
 		Map.Entry<String, Integer> eMax = Collections.max(eset, cmp);
+		
 		return eMax.getKey();
 	}
 	

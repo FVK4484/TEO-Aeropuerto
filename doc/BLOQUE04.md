@@ -34,11 +34,13 @@ En el tipo contenedor **VuelosB4** añada las siguientes operaciones e implemén
 
 9.	Devuelve el vuelo con mayor número de pasajeros. Si no se puede calcular devuelve null.
 
-10.	Dado un destino devuelve el código del vuelo de menor precio que vuela a ese destino. Eleva *NoSuchElementException* si no se puede calcular.
+10. Dado un destino, devuelve un vuelo que vaya a ese destino y que tenga plazas libres.
 
-11.	Dado un número *n* devuelve una lista con los n vuelos más baratos.
+11.	Dado un destino devuelve el código del vuelo de menor precio que vuela a ese destino. Eleva *NoSuchElementException* si no se puede calcular.
 
-12.	Dado un número *n* devuelve una lista con los n vuelos de mayor duración.
+12.	Dado un número *n* devuelve una lista con los n vuelos más baratos.
+
+13.	Dado un número *n* devuelve una lista con los n vuelos de mayor duración.
 
 
 Los resultados esperados para el dataset proporcionado son:
@@ -102,6 +104,11 @@ Los resultados esperados para el dataset proporcionado son:
 ===testGetVueloMasPasajeros ==========
 	El vuelo con más pasajeros es Vuelo [Trayecto=Trayecto[origen=Barcelona, destino=Madrid], codigo=IB101, fecha=2023-06-11]
 
+===testGetVueloDestinoConPlazasLibres ==========
+	Un vuelo a Madrid con plazas libres es Vuelo [Trayecto=Trayecto[origen=Barcelona, destino=Madrid], codigo=IB101, fecha=2023-06-01]
+	
+===testGetVueloDestinoConPlazasLibres ==========
+	Un vuelo a Valencia con plazas libres es null
 ===testGetCodigoVueloMenorPrecio ==========
 	El vuelo con destino Madrid con menor precio es RY201
 

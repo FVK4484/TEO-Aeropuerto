@@ -36,7 +36,7 @@ En este segundo bloque se define el tipo contenedor **Vuelos**, que representa u
 
 **Criterio de igualdad:**
 
-- Dos objetos de tipo **Vuelos** son iguales si lo son su código y la lista de vuelos.
+- Dos objetos de tipo **Vuelos** son iguales si lo son su nombre y la lista de vuelos.
 
 **Otras operaciones:**
 
