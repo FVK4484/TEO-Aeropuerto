@@ -1,9 +1,14 @@
-package fp.tipos;
+package fp.tipos.test;
 
 import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import fp.tipos.FactoriaVuelos;
+import fp.tipos.Vuelo;
+import fp.tipos.VuelosB5;
 
 public class TestVuelosB5 {
 
