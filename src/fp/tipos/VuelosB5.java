@@ -18,12 +18,11 @@ public class VuelosB5 extends Vuelos {
 	// 1. Dada una fecha f devuelve el número de destinos 
 	// diferentes de todos los vuelos de esa fecha.
 	public Integer getNumDestinosDiferentesFecha(LocalDate f) {
-		Long numDestinos = getVuelos().stream()
+		return getVuelos().stream()
 				.filter(v -> v.getFecha().equals(f))
 				.map(v -> v.getDestino())
 				.distinct()
-				.count();
-		return numDestinos.intValue();
+				.collect(Collectors.collectingAndThen(Collectors.counting(), Long::intValue));
 	}
 	
 	// 2. Devuelve un conjunto ordenado con los vuelos ordenados 
